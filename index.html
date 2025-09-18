@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Dental Popular</title>
+  <style>
+    /* Estilos generales */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      scroll-behavior: smooth;
+      background: #f4f4f4;
+    }
+
+    section {
+      min-height: 100vh; /* cada sección ocupa la pantalla completa */
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    #inicio {
+        padding: 0;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Colores distintos para diferenciar secciones */
+    #informacion { background: white; }
+    #servicios { background: linear-gradient(135deg, #667eea, #764ba2); color: white; }
+    #especialistas { background: #f4f4f4; }
+    #contacto { background: linear-gradient(135deg, #36d1dc, #5b86e5); color: white; }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 600px;
+    }
+
+    nav {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 20px;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: white;
+      background: rgba(0,0,0,0.5);
+      padding: 10px 15px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background: rgba(0,0,0,0.8);
+    }
+    #imginfo{
+      height: auto;
+      width: 100%;
+      display: block;
+    }
+    
+    #limpieza,#extraccion,#endodoncia,#brackets,#corona,#resina{
+      height: 100px;
+      width: 150px;
+    }
+    #servicios{
+      display: flex;
+      flex-wrap: wrap;
+    }
+    #info{
+      position: relative;
+      width: 100%;
+    }
+    #contacto{
+      min-height: auto;
+      padding: 0;
+    }
+
+    /* --- INICIO: ESTILOS PARA LA GALERÍA MANUAL --- */
+
+    .slideshow-container {
+      width: 100%;
+      position: relative;
+      margin: auto;
+    }
+
+    /* Ocultar las imágenes por defecto */
+    .mySlides {
+      display: none;
+      height: 100vh; /* Ocupa toda la altura de la sección */
+    }
+    .mySlides img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Asegura que la imagen cubra el espacio */
+    }
+
+    /* Botones de Anterior y Siguiente */
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      background-color: rgba(0,0,0,0.5);
+    }
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    /* Puntos de navegación */
+    .dot-container {
+        text-align: center;
+        padding: 20px;
+        position: absolute;
+        bottom: 15px;
+        width: 100%;
+    }
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+    .active, .dot:hover {
+      background-color: #717171;
+    }
+
+    /* --- FIN: ESTILOS PARA LA GALERÍA MANUAL --- */
+
+    @media (max-width: 768px) {
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        width: 95%; 
+        left: 2.5%; 
+        transform: translateX(0); 
+        top: 10px; 
+      }
+
+      nav a {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#informacion">Informacion</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#especialistas">Especialistas</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <section id="inicio">
+    <div class="slideshow-container">
+    
+        <div class="mySlides">
+            <img src="logo.jpeg" alt="Imagen 1">
+        </div>
+    
+        <div class="mySlides">
+            <img src="imagen0.jpg" alt="Imagen 2">
+        </div>
+    
+        <div class="mySlides">
+            <img src="imagen1.jfif" alt="Imagen 3">
+        </div>
+        <div class="mySlides">
+            <img src="imagen2.jfif" alt="Imagen 4">
+        </div>
+        <div class="mySlides">
+            <img src="imagen3.jfif" alt="Imagen 5">
+        </div>
+        <div class="mySlides">
+            <img src="imagen4.jfif" alt="Imagen 6">
+        </div>
+    
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    </div>
+    
+    <div class="dot-container">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
+        <span class="dot" onclick="currentSlide(4)"></span> 
+        <span class="dot" onclick="currentSlide(5)"></span> 
+        <span class="dot" onclick="currentSlide(6)"></span> 
+
+    </div>
+  </section>
+
+  <section id="informacion">
+    <div class="row g-4 text-center align-items-stretch">
+        <div class="col-md-4 d-flex">
+            <div class="card shadow w-100">
+                <div class="card-body">
+                    <div class="mb-3 fs-1 text-danger">🦷</div>
+                    <h5 class="card-title">Nosotros</h5>
+                    <p class="card-text">Somos un equipo de especialistas listos para cuidar de tu sonrisa. Ofrecemos atención dental de calidad.</p>
+                    <p>
+                        Agenda tu cita:
+                        <br>
+                        📞 878 155 5297
+                        <br>
+                        📞 (878) 782 0616
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 d-flex">
+            <div class="card shadow w-100">
+                <div class="card-body">
+                    <div class="mb-3 fs-1 text-primary">👤</div>
+                    <h5 class="card-title">Contáctanos</h5>
+                    <form name="contacto-paciente" method="POST" data-netlify="true">
+                        <input type="hidden" name="form-name" value="contacto-paciente" />
+                        <div class="row">
+                            <div class="col-md-6 mb-2">
+                                <input type="text" class="form-control" name="nombre" placeholder="Nombre(s)" required>
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <input type="text" class="form-control" name="apellidos" placeholder="Apellidos" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-2">
+                                <input type="tel" class="form-control" name="telefono" placeholder="Teléfono" required>
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <input type="email" class="form-control" name="email" placeholder="Correo Electrónico" required>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <textarea class="form-control" name="mensaje" rows="2" placeholder="Tu mensaje"></textarea>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 d-flex">
+            <div class="card shadow w-100">
+                <div class="card-body">
+                    <div class="mb-3 fs-1">📍</div>
+                    <h5 class="card-title">Ubicación y Horarios</h5>
+                    <p>
+                        Lunes a Viernes: 9am - 7pm<br>
+                        Sábado: 8am - 4pm
+                    </p>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.156102048628!2d-100.58426662563228!3d28.68497667563611!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865f8b523295f593%3A0x6f81ec78f07c9c5a!2sDental%20Popular!5e0!3m2!1ses-419!2smx!4v1758140422227!5m2!1ses-419!2smx" width="100%" height="50%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>   
+                        <br><h8>Juan Pablo ll #2001 Acoros 2, Piedras Negras, Mexico</h8>
+                                   </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  <section id="servicios">
+    <div class="container">
+      <h1 class="mb-5">Nuestros Servicios</h1>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card shadow h-100 text-dark">
+            <div class="card-body text-center">
+              <h5>Extracciones</h5>
+              <p>Procedimiento seguro para remover dientes dañados, aliviando el dolor y previniendo infecciones.</p>
+              <img src="extraccion.jpg" alt="Extracciones" class="img-fluid">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card shadow h-100 text-dark">
+            <div class="card-body text-center">
+              <h5>Endodoncias</h5>
+              <p>Tratamiento de conducto para salvar tus dientes naturales, eliminando la infección y el dolor.</p>
+              <img src="endodoncia.png" alt="Endodoncias" class="img-fluid">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card shadow h-100 text-dark">
+            <div class="card-body text-center">
+              <h5>Limpiezas</h5>
+              <p>Eliminamos placa y sarro para prevenir caries, manteniendo tus encías y dientes sanos.</p>
+              <img src="limpieza.jpg" alt="Limpiezas" class="img-fluid">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow h-100 text-dark">
+              <div class="card-body text-center">
+                <h5>Brackets</h5>
+                <p>Tratamientos de ortodoncia para alinear tus dientes y lograr una sonrisa perfecta y funcional.</p>
+                <img src="brackets.jpg" alt="Brackets" class="img-fluid">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card shadow h-100 text-dark">
+              <div class="card-body text-center">
+                <h5>Coronas</h5>
+                <p>Restauramos la forma, tamaño y fuerza de dientes dañados con fundas hechas a la medida.</p>
+                <img src="corona.jpg" alt="Coronas" class="img-fluid">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card shadow h-100 text-dark">
+              <div class="card-body text-center">
+                <h5>Resinas</h5>
+                <p>Reparaciones estéticas del color de tu diente para caries o fracturas, con un acabado natural.</p>
+                <img src="resina.jpg" alt="Resinas" class="img-fluid">
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="especialistas">
+    <div class="container">
+      <h1 class="mb-5 text-dark">Nuestros Especialistas</h1>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card shadow h-100">
+            <img src="draLiz.jfif" class="card-img-top" alt="Especialista" height="55%">
+            <div class="card-body text-center">
+              <h5 class="card-title">Dra. Lizeth Domínguez Rodríguez</h5>
+              <p class="card-text text-muted">Cirujano Dentista</p>
+              <p>Ced. Prof 14497231</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card shadow h-100">
+            <img src="drajessica.jpeg" class="card-img-top" alt="Especialista" height="55%">
+            <div class="card-body text-center">
+              <h5 class="card-title">Dra. Jessica  Ivett Niño Aguirre</h5>
+              <p class="card-text text-muted">Ortodoncista</p>
+              <p>Ced. Esp. 14512351</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card shadow h-100">
+            <img src="https://randomuser.me/api/portraits/women/65.jpg" class="card-img-top" alt="Especialista">
+            <div class="card-body text-center">
+              <h5 class="card-title">Dra. Mariana Torres</h5>
+              <p class="card-text text-muted">Endodoncista</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+      <img src="info.jpg" alt="Información de contacto" id="imginfo">
+  </section>
+
+  <footer class="bg-dark text-white text-center py-3">
+    <h6 class="mb-0">© 2025 Dental Popular</h6>
+  </footer>
+
+  <script>
+    // --- INICIO: SCRIPT PARA LA GALERÍA MANUAL ---
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Función para avanzar o retroceder
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    // Función para ir a una imagen específica (con los puntos)
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}    
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+    }
+    // --- FIN: SCRIPT PARA LA GALERÍA MANUAL ---
+  </script>
+  <script>
+    // Observador para detectar cuando una sección entra en pantalla
+    const sections = document.querySelectorAll("section");
+
+    const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible"); // aparece
+    } else {
+      entry.target.classList.remove("visible"); // desaparece
+    }
+  });
+}, { threshold: 0.2 }); // sensibilidad del efecto
+
+
+    // Observar todas las secciones excepto la primera
+    sections.forEach((section, index) => {
+        if (index !== 0) { // No aplicar al #inicio
+            observer.observe(section);
+        }
+    });
+  </script>
+</body>
+</html>
