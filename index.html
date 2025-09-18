@@ -258,31 +258,45 @@
                 <div class="card-body">
                     <div class="mb-3 fs-1 text-primary">👤</div>
                     <h5 class="card-title">Contáctanos</h5>
-                    <form name="contacto-paciente" method="POST" data-netlify="true">
-                        <input type="hidden" name="form-name" value="contacto-paciente" />
-                        <div class="row">
-                            <div class="col-md-6 mb-2">
-                                <input type="text" class="form-control" name="nombre" placeholder="Nombre(s)" required>
-                            </div>
-                            <div class="col-md-6 mb-2">
-                                <input type="text" class="form-control" name="apellidos" placeholder="Apellidos" required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 mb-2">
-                                <input type="tel" class="form-control" name="telefono" placeholder="Teléfono" required>
-                            </div>
-                            <div class="col-md-6 mb-2">
-                                <input type="email" class="form-control" name="email" placeholder="Correo Electrónico" required>
-                            </div>
-                        </div>
-                        <div class="mb-2">
-                            <textarea class="form-control" name="mensaje" rows="2" placeholder="Tu mensaje"></textarea>
-                        </div>
-                        <div class="d-grid">
-                            <button type="submit" class="btn btn-primary">Enviar</button>
-                        </div>
-                    </form>
+                    <form name="contacto-paciente" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    
+    <input type="hidden" name="form-name" value="contacto-paciente" />
+    
+    <p style="display:none;">
+      <label>No llenes esto: <input name="bot-field" /></label>
+    </p>
+
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="nombre" class="form-label">Nombre(s)</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej. Ana" required>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="apellidos" class="form-label">Apellidos</label>
+        <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Ej. García López" required>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-6 mb-3">
+          <label for="telefono" class="form-label">Teléfono</label>
+          <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Ej. 877 123 4567" required>
+      </div>
+      <div class="col-md-6 mb-3">
+          <label for="email" class="form-label">Correo Electrónico</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="Ej. tucorreo@correo.com" required>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="mensaje" class="form-label">Deja tu mensaje</label>
+      <textarea class="form-control" id="mensaje" name="mensaje" rows="3" placeholder=""></textarea>
+    </div>
+    
+    <div class="d-grid">
+      <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+    </div>
+</form>
                 </div>
             </div>
         </div>
